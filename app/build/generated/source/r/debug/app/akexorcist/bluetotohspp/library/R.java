@@ -12,8 +12,8 @@ public final class R {
 		public static final int bluetooth_spp_text_size = 0x7f070011;
 	}
 	public static final class id {
-		public static final int button_scan = 0x7f0b005c;
-		public static final int list_devices = 0x7f0b005b;
+		public static final int button_scan = 0x7f0b0063;
+		public static final int list_devices = 0x7f0b0062;
 	}
 	public static final class layout {
 		public static final int device_list = 0x7f04001c;

@@ -5,40 +5,47 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="3050989594397"
+    timestamp="20663457219929"
     token="-1750794294237936562"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="32" />
+        duration="48" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="17" />
     <task
         name="instant-run-transform"
-        duration="3" />
+        duration="6" />
     <task
         name="verifier"
-        duration="0" />
+        duration="3" />
 
     <artifact
-        location="/home/sankarmanoj/AndroidStudioProjects/Bluetooth-ESD/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
-        type="DEX" />
+        location="/home/sankarmanoj/AndroidStudioProjects/Bluetooth-ESD/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="2315387420401"
+        timestamp="20136093441813"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/sankarmanoj/AndroidStudioProjects/Bluetooth-ESD/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="3050989594397"
+        timestamp="20566490383089"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/sankarmanoj/AndroidStudioProjects/Bluetooth-ESD/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
             type="DEX" />
+    </build>
+    <build
+        timestamp="20663457219929"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/home/sankarmanoj/AndroidStudioProjects/Bluetooth-ESD/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
