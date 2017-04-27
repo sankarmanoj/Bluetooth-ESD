@@ -125,4 +125,18 @@
         android:layout_toLeftOf="@+id/lightStatusTextView"
         android:layout_toStartOf="@+id/lightStatusTextView" />
 
+    <Button
+        android:text="Login"
+        android:id="@+id/loginbutton"
+        android:textSize="10sp"
+        android:elevation="0dp"
+        android:layout_below="@+id/bluetoothStatusTextView"
+        android:layout_alignLeft="@+id/bluetoothStatusTextView"
+        android:layout_alignStart="@+id/bluetoothStatusTextView"
+        android:layout_marginTop="16dp"
+        android:layout_width="60dp"
+        android:layout_alignRight="@+id/bluetoothStatusTextView"
+        android:layout_alignEnd="@+id/bluetoothStatusTextView"
+        android:layout_height="40sp" />
+
 </RelativeLayout>

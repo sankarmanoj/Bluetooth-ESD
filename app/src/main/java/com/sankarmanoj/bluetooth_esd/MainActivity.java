@@ -8,9 +8,11 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
     TextView fanCurrentValueTextView, lightCurrentValueTextView, temperatureTextView;
     TextView bluetoothStatusTextView;
     Boolean connected = false;
+    Boolean loggedin = false;
     BluetoothSocket bluetoothSocket;
     BufferedReader bluetoothInput;
     PrintWriter bluetoothOutput;
     BluetoothAdapter bluetoothAdapter;
     Timer fanTimer, lightTimer;
-    Button requestButton;
+    Button requestButton, loginbutton;
     DecimalFormat formatter;
     static MainActivity mainActivity;
     // SPP UUID service
@@ -64,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
         lightTimer = new Timer(true);
         temperatureTextView = (TextView)findViewById(R.id.temperatureStatusTextView);
         requestButton = (Button)findViewById(R.id.tempRequestButton);
+        loginbutton = (Button)findViewById(R.id.loginbutton);
+        loginbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(connected)
+                {
+                    login();
+                }
+            }
+        });
         formatter = new DecimalFormat("00");
         fanSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -208,6 +221,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void login()
+    {
+        if(!loggedin)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
+            builder.setTitle("Enter Password");
+
+            final EditText input = new EditText(this);
+
+            input.setInputType(InputType.TYPE_CLASS_TEXT );
+            builder.setView(input);
+
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String m_Text = input.getText().toString();
+                    bluetoothOutput.write(m_Text);
+                    bluetoothOutput.flush();
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
+        }
     }
     public static BluetoothSocket createRfcommSocket(BluetoothDevice device) {
          final boolean D = true;
